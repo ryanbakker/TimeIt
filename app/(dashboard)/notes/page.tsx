@@ -19,12 +19,20 @@ async function Notes({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <Heading
-        title="Notes"
-        subtitle="Create and store all your class notes in one place"
-      />
+      <div className="wrapper flex flex-row items-end justify-between mt-12">
+        <div>
+          <div className="w-fit">
+            <h1 className="text-3xl font-semibold text-indigo-900 dark:text-indigo-50">
+              Notes
+            </h1>
 
-      <div className="wrapper !pt-0">
+            <div className="h-[3px] w-full bg-indigo-900 dark:bg-indigo-50 rounded-full" />
+          </div>
+          <h2 className="pt-2 text-slate-600 dark:text-slate-400 font-light">
+            Create and store all your class notes in one place
+          </h2>
+        </div>
+
         <Button asChild size="lg" className="hover:bg-indigo-700">
           <Link href="/notes/create">Create Note</Link>
         </Button>

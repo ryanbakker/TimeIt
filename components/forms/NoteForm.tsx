@@ -27,7 +27,6 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
   const router = useRouter();
-  const [postContent, setPostContent] = useState("");
 
   const initialValues =
     note && type === "Update"
@@ -35,6 +34,8 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
           ...note,
         }
       : noteDefaultValues;
+
+  const [postContent, setPostContent] = useState(initialValues.content || "");
 
   const form = useForm<z.infer<typeof noteFormSchema>>({
     resolver: zodResolver(noteFormSchema),
@@ -190,14 +191,6 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
                     <span>- text</span>
                   </li>
                   <li>
-                    <p>Link</p>
-                    <span>[text](link)</span>
-                  </li>
-                  <li>
-                    <p>Image</p>
-                    <span>![alt text](url)</span>
-                  </li>
-                  <li>
                     <p>Divide</p>
                     <span>---</span>
                   </li>
@@ -285,8 +278,10 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
                 name="content"
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-start bg-gray-200 rounded-md px-2">
-                    <div className="pt-1.5 pl-0">
+                    <div className="pt-1.5 pl-0 relative h-full flex-1">
                       <AlignLeft />
+
+                      <div className="h-[245px] rounded-full w-[1.5px] bg-black/10 absolute left-[9px] top-[38px]" />
                     </div>
                     <FormControl>
                       <Textarea
