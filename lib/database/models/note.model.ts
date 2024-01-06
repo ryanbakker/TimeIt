@@ -6,7 +6,7 @@ export interface INote extends Document {
   content?: string;
   createdAt: Date;
   category: { _id: string; name: string };
-  writer: {
+  creator: {
     _id: string;
     firstName: string;
     lastName: string;
@@ -19,7 +19,7 @@ const NoteSchema = new Schema({
   content: { type: String },
   createdAt: { type: Date, default: Date.now },
   category: { type: Schema.Types.ObjectId, ref: "Category" },
-  organizer: { type: Schema.Types.ObjectId, ref: "User" },
+  creator: { type: Schema.Types.ObjectId, ref: "User" },
 });
 
 const Note = models.Note || model("Note", NoteSchema);

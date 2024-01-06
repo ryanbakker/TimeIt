@@ -4,7 +4,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "TimeIt - Task Manager",
+  title: "TimeIt - Manage Your Education",
   description: "Manage your education",
 };
 
@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className="flex flex-col h-screen">
+        <body className="flex flex-col h-screen bg-[#EEEEEE] dark:bg-slate-900">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

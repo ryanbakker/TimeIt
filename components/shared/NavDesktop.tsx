@@ -9,7 +9,9 @@ function NavDesktop() {
 
       <div className="flex gap-6 items-center">
         <ThemeToggler />
-        <UserButton afterSignOutUrl="/sign-in" />
+        <div className="border border-indigo-500 rounded-full p-1 flex items-center justify-center">
+          <UserButton afterSignOutUrl="/sign-in" />
+        </div>
       </div>
     </nav>
   );

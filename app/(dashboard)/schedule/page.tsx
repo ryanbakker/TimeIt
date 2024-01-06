@@ -1,8 +1,13 @@
+import Heading from "@/components/shared/Heading";
+
 function Schedule() {
   return (
-    <div>
-      <h1>Schedule</h1>
-    </div>
+    <>
+      <Heading
+        title="Schedule"
+        subtitle="Add your timetable and never lose it"
+      />
+    </>
   );
 }
 

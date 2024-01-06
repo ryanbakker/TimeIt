@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Heading from "@/components/shared/Heading";
 
 export default function Home() {
   return (
     <>
-      <h2>TimeIt</h2>
+      <Heading title="Dashboard" subtitle="Welcome to TimeIt" />
     </>
   );
 }

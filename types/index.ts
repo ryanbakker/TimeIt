@@ -1,5 +1,7 @@
 // User Params
 
+import { INote } from "@/lib/database/models/note.model";
+
 export type CreateUserParams = {
   clerkId: string;
   firstName: string;
@@ -12,12 +14,6 @@ export type UpdateUserParams = {
   firstName: string;
   lastName: string;
   photo: string;
-};
-
-// Category
-
-export type CreateCategoryParams = {
-  categoryName: string;
 };
 
 // Note Params
@@ -72,7 +68,7 @@ export type Note = {
   _id: string;
   title: string;
   content: string;
-  organizer: {
+  creator: {
     _id: string;
     firstName: string;
     lastName: string;
@@ -82,4 +78,46 @@ export type Note = {
     _id: string;
     name: string;
   };
+};
+
+// Category Params
+export type CreateCategoryParams = {
+  categoryName: string;
+};
+
+// URL Query Params
+export type UrlQueryParams = {
+  params: string;
+  key: string;
+  value: string | null;
+};
+
+export type RemoveUrlQueryParams = {
+  params: string;
+  keysToRemove: string[];
+};
+
+export type SearchParamProps = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
+
+// Props
+
+export type NoteFormProps = {
+  userId: string;
+  type: "Create" | "Update";
+  note?: INote;
+  noteId?: string;
+};
+
+export type NoteCollectionProps = {
+  data: INote[];
+  emptyTitle: string;
+  emptyStateSubtext: string;
+  limit: number;
+  page: number | string;
+  totalPages?: number;
+  urlParamName?: string;
+  collectionType?: "All_Notes" | "Preview_Notes";
 };

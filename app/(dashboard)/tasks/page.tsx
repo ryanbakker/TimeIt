@@ -1,8 +1,10 @@
+import Heading from "@/components/shared/Heading";
+
 function Tasks() {
   return (
-    <div>
-      <h1>Tasks</h1>
-    </div>
+    <>
+      <Heading title="Tasks" subtitle="Keep track of your assignments" />
+    </>
   );
 }
 

@@ -13,14 +13,16 @@ function NavList() {
         const isActive = pathname === link.route;
 
         return (
-          <li
-            key={link.route}
-            className={`
-                ${isActive && "text-indigo-900 bg-white"}
-                bg-transparent text-white py-1.5 px-5 rounded
+          <li key={link.route}>
+            <Link
+              href={link.route}
+              className={`
+                ${isActive && "!text-indigo-900 dark:!text-indigo-900 bg-white"}
+                bg-transparent text-white py-2 px-5 rounded font-medium
                 `}
-          >
-            <Link href={link.route}>{link.label}</Link>
+            >
+              {link.label}
+            </Link>
           </li>
         );
       })}

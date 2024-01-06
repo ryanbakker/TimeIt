@@ -79,4 +79,128 @@
   .wrapper {
     @apply max-w-7xl lg:mx-auto p-5 md:px-10 xl:px-0 w-full;
   }
+
+  .input-field,
+  .text-area {
+    @apply rounded-md bg-transparent border-none ring-0 shadow-none !mt-0 focus-visible:ring-transparent text-indigo-800 !important;
+  }
+}
+
+.markdown-tips-container {
+  @apply relative;
+}
+
+.markdown-tips-list {
+  @apply flex flex-col w-full gap-1;
+}
+
+.markdown-tips-list li {
+  @apply flex flex-row min-w-[13rem];
+}
+
+.markdown-tips-list li p {
+  @apply mr-auto text-sm;
+}
+
+.markdown-tips-list li span {
+  @apply ml-auto tracking-widest text-center text-sm;
+}
+
+.markdown-preview span {
+  @apply mt-6 px-4 py-2 bg-gray-100 text-gray-700 inline-block rounded-md;
+}
+
+.markdown-preview h1,
+.blog-post-content h1 {
+  @apply text-3xl py-[0.6rem] font-semibold;
+}
+
+.markdown-preview h2,
+.blog-post-content h2 {
+  @apply text-2xl py-[0.6rem] font-medium;
+}
+
+.markdown-preview h3,
+.blog-post-content h3 {
+  @apply text-xl py-[0.4rem] font-light;
+}
+
+.markdown-preview h4,
+.blog-post-content h4 {
+  @apply text-lg py-[0.4rem] font-medium;
+}
+
+.markdown-preview p,
+.blog-post-content p {
+  @apply py-4;
+}
+
+.markdown-preview h5,
+.blog-post-content h5 {
+  color: #9f9f9f;
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 0;
+  font-weight: 500;
+}
+
+.markdown-preview h5::after,
+.blog-post-content h5::after {
+  content: "";
+  position: absolute;
+  bottom: 0.3rem;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #9f9f9f;
+  z-index: 1;
+}
+
+.markdown-preview h6,
+.blog-post-content h6 {
+  @apply text-gray-400 font-bold py-[0.4rem] uppercase;
+}
+
+.markdown-preview code,
+.blog-post-content code {
+  font-family: monospace;
+  @apply tracking-wide;
+}
+
+.markdown-preview em,
+.blog-post-content em {
+  font-weight: 300;
+}
+
+.markdown-preview blockquote,
+.blog-post-content blockquote {
+  @apply text-slate-600 dark:text-slate-300;
+  position: relative;
+  display: inline-block;
+  margin: 2rem 0;
+  padding-left: 0.7rem;
+  font-weight: 300;
+}
+
+.markdown-preview blockquote::before,
+.blog-post-content blockquote::before {
+  @apply bg-slate-600 dark:bg-slate-300;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 85%; /* Change this to 100% to make it as tall as the content */
+  width: 3px;
+  z-index: 1;
+}
+
+.markdown-preview ul,
+.blog-post-content ul {
+  list-style-type: disc;
+  padding-left: 0.8rem;
+}
+
+.markdown-preview hr,
+.blog-post-content hr {
+  @apply my-8 border-gray-500;
 }

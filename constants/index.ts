@@ -16,3 +16,9 @@ export const headerLinks = [
     route: "/schedule",
   },
 ];
+
+export const noteDefaultValues = {
+  title: "",
+  content: "",
+  categoryId: "",
+};
