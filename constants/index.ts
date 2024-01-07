@@ -22,3 +22,9 @@ export const noteDefaultValues = {
   content: "",
   categoryId: "",
 };
+
+export const gradeDefaultValues = {
+  assignment: "",
+  credits: 0,
+  letter: "",
+};

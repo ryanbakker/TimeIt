@@ -50,7 +50,7 @@ async function Note({ params: { id }, searchParams }: SearchParamProps) {
         </div>
       </section>
 
-      <section className="mt-2 border-t border-b bg-indigo-50 border-indigo-700 !p-1">
+      <section className="mt-2 border-t border-b bg-white dark:bg-slate-800 border-neutral-300 dark:border-neutral-700 !p-1">
         <div
           dangerouslySetInnerHTML={{ __html: htmlContent || "" }}
           className="wrapper blog-post-content py-5 rounded-lg min-h-[400px]"

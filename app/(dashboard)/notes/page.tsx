@@ -3,6 +3,7 @@ import NotesCollection from "@/components/shared/NotesCollection";
 import { Button } from "@/components/ui/button";
 import { getAllNotes } from "@/lib/database/actions/note.actions";
 import { SearchParamProps } from "@/types";
+import { Plus } from "lucide-react";
 import Link from "next/link";
 
 async function Notes({ searchParams }: SearchParamProps) {
@@ -33,8 +34,14 @@ async function Notes({ searchParams }: SearchParamProps) {
           </h2>
         </div>
 
-        <Button asChild size="lg" className="hover:bg-indigo-700">
-          <Link href="/notes/create">Create Note</Link>
+        <Button
+          asChild
+          size="lg"
+          className="hover:bg-indigo-700 flex flex-row gap-1.5 items-center"
+        >
+          <Link href="/notes/create">
+            <Plus size={18} /> Create Note
+          </Link>
         </Button>
       </div>
 

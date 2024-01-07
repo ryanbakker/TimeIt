@@ -204,3 +204,14 @@
 .blog-post-content hr {
   @apply my-8 border-gray-500;
 }
+
+.radial-filter {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150vw;
+  height: 150%;
+  background: radial-gradient(circle, transparent, rgba(165, 180, 252, 1));
+  border-radius: 50%;
+  z-index: -1;
+}

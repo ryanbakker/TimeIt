@@ -8,3 +8,12 @@ export const noteFormSchema = z.object({
   content: z.string(),
   categoryId: z.string(),
 });
+
+export const gradeFormSchema = z.object({
+  assignment: z
+    .string()
+    .min(3, "Assignment must be at least 3 characters")
+    .max(30, "Assignment must be less than 30 characters"),
+  credits: z.coerce.number(),
+  letter: z.string(),
+});

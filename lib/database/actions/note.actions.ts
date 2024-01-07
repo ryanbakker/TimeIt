@@ -49,7 +49,7 @@ export async function createNote({ userId, note, path }: CreateNoteParams) {
   }
 }
 
-// GET ONE MEET BY ID
+// GET ONE NOTE BY ID
 export async function getNoteById(noteId: string) {
   try {
     await connectToDatabase();

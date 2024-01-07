@@ -24,18 +24,13 @@ function Footer() {
           </p>
         </div>
 
-        <ul className="flex flex-row gap-10">
-          {headerLinks.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.route}
-                className="text-slate-400 hover:text-slate-900 hover:dark:text-slate-50 transition-all"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Link
+          href="https://github.com/ryanbakker/TimeIt"
+          target="_blank"
+          className="hover:text-indigo-700 transition-all"
+        >
+          Visit the GitHub Repo
+        </Link>
       </div>
     </footer>
   );

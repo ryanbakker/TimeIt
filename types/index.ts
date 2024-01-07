@@ -121,3 +121,24 @@ export type NoteCollectionProps = {
   urlParamName?: string;
   collectionType?: "All_Notes" | "Preview_Notes";
 };
+
+// Grades
+
+export type CreateGradeParams = {
+  userId: string;
+  grade: {
+    assignment: string;
+    credits: number;
+    letter: string;
+  };
+  path: string;
+};
+
+export type GetAllGradesParams = {
+  creator: any;
+};
+
+export type DeleteGradeParams = {
+  gradeId: string;
+  path: string;
+};

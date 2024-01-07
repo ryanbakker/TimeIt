@@ -32,19 +32,19 @@ async function Card({ note }: CardProps) {
   return (
     <div className="relative">
       <Link href={`/notes/${note._id}`}>
-        <div className="px-4 py-4 shadow-sm z-10">
-          <h4 className="text-lg font-semibold text-indigo-800 line-clamp-1">
+        <div className="px-4 py-4 shadow-sm z-10 bg-neutral-50 rounded-t-md">
+          <h4 className="text-lg font-semibold text-indigo-800 dark:text-indigo-500 line-clamp-1">
             {note.title}
           </h4>
         </div>
         <div className="bg-indigo-300/20 relative px-4 py-3 flex-1 rounded-b-md z-0 min-h-[140px] w-full flex flex-col justify-between">
           <section
-            className="line-clamp-3 text-base text-slate-800 font-light"
+            className="line-clamp-3 text-base text-slate-800 dark:text-slate-300 font-light"
             dangerouslySetInnerHTML={{ __html: htmlContent || "" }}
           />
 
           <div className="flex flex-row pt-5 items-center justify-between z-50">
-            <p className="font-light text-sm text-slate-600">
+            <p className="font-light text-sm text-slate-600 dark:text-slate-500">
               Created: {multiFormatDateString(note.createdAt.toString())}
             </p>
           </div>
