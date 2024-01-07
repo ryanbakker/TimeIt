@@ -27,6 +27,7 @@ import {
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import LetterGradeDropdown from "./LetterGradeDropdown";
+import { Plus } from "lucide-react";
 
 function GradeForm({ userId }: { userId: string }) {
   const form = useForm<z.infer<typeof gradeFormSchema>>({
@@ -54,8 +55,14 @@ function GradeForm({ userId }: { userId: string }) {
 
   return (
     <AlertDialog>
-      <Button size="lg" asChild>
-        <AlertDialogTrigger>Add Grade</AlertDialogTrigger>
+      <Button
+        size="lg"
+        asChild
+        className="flex flex-row gap-2 bg-indigo-700 hover:bg-indigo-900"
+      >
+        <AlertDialogTrigger>
+          Add Grade <Plus size={20} />
+        </AlertDialogTrigger>
       </Button>
       <AlertDialogContent>
         <AlertDialogHeader>

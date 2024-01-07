@@ -9,7 +9,8 @@ function BackButton() {
   return (
     <Button
       onClick={() => router.back()}
-      className="flex flex-row gap-1 items-center rounded-md py-2 px-5 bg-slate-500 text-white hover:bg-slate-600"
+      size="lg"
+      className="flex flex-row gap-1 items-center pr-10"
     >
       <ChevronLeft size={18} /> Back
     </Button>

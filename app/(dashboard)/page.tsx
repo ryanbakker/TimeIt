@@ -1,10 +1,15 @@
-import GradesPreview from "@/components/shared/GradesPreview";
+import { columns } from "@/components/gradesTable/columns";
+import { columnsLite } from "@/components/gradesTable/columns-lite";
+import { GradeTableLite } from "@/components/gradesTable/grade-table-lite";
+import GradeChart from "@/components/shared/GradeChart";
 import NotesCollection from "@/components/shared/NotesCollection";
 import WelcomeHeading from "@/components/shared/WelcomeHeading";
 import { Button } from "@/components/ui/button";
 import { getAllNotes } from "@/lib/database/actions/note.actions";
+import { getData } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
-import { Plus, StickyNote } from "lucide-react";
+import { auth } from "@clerk/nextjs";
+import { Award, Plus, StickyNote } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home({ searchParams }: SearchParamProps) {
@@ -19,6 +24,11 @@ export default async function Home({ searchParams }: SearchParamProps) {
     limit: 3,
   });
 
+  const { sessionClaims } = auth();
+  const userId = sessionClaims?.userId as string;
+
+  const data = await getData();
+
   return (
     <>
       <section className="relative overflow-hidden py-8 -z-10">
@@ -29,7 +39,25 @@ export default async function Home({ searchParams }: SearchParamProps) {
       </section>
 
       <section className="bg-neutral-100 pt-12 pb-20 mb-16">
-        <GradesPreview />
+        <div className="wrapper grid grid-cols-1 md:grid-cols-2">
+          <div className="flex flex-col gap-10">
+            <div className="w-fit">
+              <h2 className="font-semibold text-2xl text-indigo-900 dark:text-indigo-50 ">
+                Grades
+              </h2>
+              <div className="h-[2.5px] w-full bg-indigo-800 dark:bg-indigo-50 rounded-full" />
+            </div>
+
+            <GradeTableLite columns={columnsLite} data={data} />
+
+            <Button size="lg" asChild className="w-fit gap-2">
+              <Link href="/grades">
+                <Award size={20} /> Go to Grades
+              </Link>
+            </Button>
+          </div>
+          <GradeChart grades={data} size="sm" />
+        </div>
       </section>
 
       <section className="wrapper mt-8">

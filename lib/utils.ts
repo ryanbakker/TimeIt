@@ -4,6 +4,10 @@ import { twMerge } from "tailwind-merge";
 import qs from "query-string";
 
 import { UrlQueryParams, RemoveUrlQueryParams } from "@/types";
+import { auth } from "@clerk/nextjs";
+import { getAllGradesByUser } from "./database/actions/grade.actions";
+import { getLetterById } from "./database/actions/letter.actions";
+import { Grades } from "@/components/gradesTable/columns";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -99,4 +103,31 @@ export function formatSimpleDate(inputDate: string): string {
   const year = String(date.getFullYear());
 
   return `${day}/${month}/${year}`;
+}
+
+export async function getData(): Promise<Grades[]> {
+  const { sessionClaims } = auth();
+  const creator = sessionClaims?.userId as any;
+
+  const getGrades = await getAllGradesByUser({ creator: creator });
+  const grades = getGrades?.data;
+
+  // Map the grades to the desired format
+  const mappedGrades: Grades[] = await Promise.all(
+    grades.map(async (grade: any) => {
+      const letter = await getLetterById(grade.letter);
+
+      console.log(letter);
+
+      return {
+        id: grade._id,
+        assignment: grade.assignment || "N/A",
+        credits: grade.credits || "N/A",
+        created: formatSimpleDate(grade.createdAt) || "N/A",
+        grade: letter ? (letter.grade as string) : "N/A",
+      };
+    })
+  );
+
+  return mappedGrades;
 }
