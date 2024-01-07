@@ -5,6 +5,7 @@ import GradeChart from "@/components/shared/GradeChart";
 import Heading from "@/components/shared/Heading";
 import { getAllGradesByUser } from "@/lib/database/actions/grade.actions";
 import { getLetterById } from "@/lib/database/actions/letter.actions";
+import { formatSimpleDate } from "@/lib/utils";
 import { auth } from "@clerk/nextjs";
 
 async function getData(): Promise<Grades[]> {
@@ -25,6 +26,7 @@ async function getData(): Promise<Grades[]> {
         id: grade._id,
         assignment: grade.assignment || "N/A",
         credits: grade.credits || "N/A",
+        created: formatSimpleDate(grade.createdAt) || "N/A",
         grade: letter ? (letter.grade as string) : "N/A",
       };
     })
@@ -39,8 +41,10 @@ async function Grades() {
 
   const data = await getData();
 
+  console.log("Filtered Data => ", data);
+
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-[#121827]">
       <Heading title="Grades" subtitle="Add and understand your grades." />
 
       <section>
@@ -54,7 +58,7 @@ async function Grades() {
           </div>
 
           <div className="flex items-start justify-start w-full">
-            <GradeChart />
+            <GradeChart grades={data} />
           </div>
         </div>
       </section>

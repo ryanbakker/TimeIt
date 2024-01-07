@@ -4,7 +4,6 @@ import {
   ColumnDef,
   ColumnFiltersState,
   SortingState,
-  Updater,
   VisibilityState,
   flexRender,
   getCoreRowModel,
@@ -59,7 +58,7 @@ export function GradeTable<TData, TValue>({
     onRowSelectionChange: setRowSelection,
     initialState: {
       pagination: {
-        pageSize: 6,
+        pageSize: 5,
       },
     },
     state: {

@@ -44,11 +44,53 @@ export const columns: ColumnDef<Grades>[] = [
   },
   {
     accessorKey: "grade",
-    header: "Grade",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex items-center flex-row gap-1 !pl-0"
+        >
+          Grade
+          <ChevronsUpDown size={14} />
+        </Button>
+      );
+    },
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("grade")}</div>
+    ),
   },
   {
     accessorKey: "credits",
-    header: "Credits",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex items-center flex-row gap-1 !pl-0"
+        >
+          Credits
+          <ChevronsUpDown size={14} />
+        </Button>
+      );
+    },
+    cell: ({ row }) => <div>{row.getValue("credits")}</div>,
+  },
+  {
+    accessorKey: "created",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex items-center flex-row gap-1 !pl-0"
+        >
+          Created
+          <ChevronsUpDown size={14} />
+        </Button>
+      );
+    },
+    cell: ({ row }) => <div>{row.getValue("created")}</div>,
   },
   {
     id: "actions",
