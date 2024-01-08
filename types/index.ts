@@ -142,3 +142,75 @@ export type DeleteGradeParams = {
   gradeId: string;
   path: string;
 };
+
+// Task Params
+
+export type CreateTaskParams = {
+  userId: string;
+  task: {
+    title: string;
+    description: string;
+    deadline: Date;
+    priorityId: string;
+  };
+  path: string;
+};
+
+export type UpdateTaskParams = {
+  userId: string;
+  task: {
+    _id: string;
+    title: string;
+    description: string;
+    deadline: Date;
+    priorityId: string;
+  };
+  path: string;
+};
+
+export type DeleteTaskParams = {
+  taskId: string;
+  path: string;
+};
+
+export type GetAllTasksParams = {
+  query: string;
+  priority: string;
+  limit: number;
+  page: number;
+};
+
+export type GetTasksByUserParams = {
+  userId: string;
+  limit?: number;
+  page: number;
+};
+
+export type GetRelatedTasksByCategoryParams = {
+  priorityId: string;
+  taskId: string;
+  limit?: number;
+  page: number | string;
+};
+
+export type Task = {
+  _id: string;
+  title: string;
+  description: string;
+  deadline: Date;
+  creator: {
+    _id: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+  };
+  priority: {
+    _id: string;
+    name: string;
+  };
+};
+
+// Priority Params
+export type CreatePriorityParams = {
+  priorityName: string;
+};

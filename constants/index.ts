@@ -38,3 +38,10 @@ export const eventDefaultValues = {
   description: "",
   dateTime: new Date(),
 };
+
+export const taskDefaultValues = {
+  title: "",
+  description: "",
+  deadline: new Date(),
+  priorityId: "",
+};

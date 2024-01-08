@@ -1,9 +1,53 @@
+import BackButton from "@/components/shared/BackButton";
 import Heading from "@/components/shared/Heading";
+import PriorityFilter from "@/components/tasks/PriorityFilter";
+import SearchTasks from "@/components/tasks/SearchTasks";
+import TaskCollection from "@/components/tasks/TaskCollection";
+import TaskForm from "@/components/tasks/TaskForm";
+import { getAllTasks } from "@/lib/database/actions/task.actions";
+import { SearchParamProps } from "@/types";
+import { auth } from "@clerk/nextjs";
 
-function Tasks() {
+async function Tasks({ searchParams }: SearchParamProps) {
+  const { sessionClaims } = auth();
+  const userId = sessionClaims?.userId as string;
+  const page = Number(searchParams?.page) || 1;
+  const searchText = (searchParams.query as string) || "";
+  const priority = (searchParams?.priority as string) || "";
+
+  const tasks = await getAllTasks({
+    query: searchText,
+    priority,
+    page: page,
+    limit: 6,
+  });
+
   return (
     <>
-      <Heading title="Tasks" subtitle="Keep track of your assignments" />
+      <section>
+        <Heading title="Tasks" subtitle="Keep track of your assignments" />
+
+        <div className="wrapper flex flex-row items-center justify-between">
+          <BackButton />
+          <TaskForm userId={userId} />
+        </div>
+      </section>
+
+      <section>
+        <div className="wrapper flex flex-row items-center gap-3">
+          <SearchTasks />
+          <PriorityFilter />
+        </div>
+
+        <TaskCollection
+          data={tasks?.data}
+          emptyTitle="Good Job!"
+          emptyStateSubtext="No tasks to complete"
+          limit={6}
+          page={page}
+          totalPages={tasks?.totalPages}
+        />
+      </section>
     </>
   );
 }
