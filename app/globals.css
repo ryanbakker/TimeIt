@@ -216,6 +216,17 @@
   z-index: -1;
 }
 
+.radial-dark {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150vw;
+  height: 150%;
+  background: radial-gradient(circle, transparent, rgba(30, 27, 75, 1));
+  border-radius: 50%;
+  z-index: -1;
+}
+
 .fade-border {
   border: 1px solid rgba(0, 0, 0, 0);
   animation: fadeInBorder 2s ease-in-out forwards;

@@ -109,13 +109,16 @@ export function GradeTable<TData, TValue>({
         </DropdownMenu>
       </div>
       <div className="rounded-md border">
-        <Table>
+        <Table className="overflow-hidden">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead
+                      key={header.id}
+                      className="text-neutral-500 hover:text-neutral-900 transition-all"
+                    >
                       {header.isPlaceholder
                         ? null
                         : flexRender(

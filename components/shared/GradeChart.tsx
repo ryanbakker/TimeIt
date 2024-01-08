@@ -70,7 +70,7 @@ function GradeChart({ grades, size }: GradeChartProps) {
           Grade Summary (Total)
         </Title>
         <DonutChart
-          className={`mt-6 drop-shadow-none rounded-full p-2 fade-border ${
+          className={`mt-6 drop-shadow-none rounded-full p-1.5 fade-border ${
             size === "lg" && "w-[380px] h-[380px]"
           } ${size === "sm" && "w-[300px] h-[300px]"}`}
           data={combinedGrades}

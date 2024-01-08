@@ -32,8 +32,8 @@ async function Card({ note }: CardProps) {
   return (
     <div className="relative">
       <Link href={`/notes/${note._id}`}>
-        <div className="px-4 py-4 shadow-sm z-10 bg-neutral-50 rounded-t-md">
-          <h4 className="text-lg font-semibold text-indigo-800 dark:text-indigo-500 line-clamp-1">
+        <div className="px-4 py-4 shadow-sm z-10 bg-gradient-to-tr from-indigo-600 via-indigo-600 to-indigo-500 rounded-t-md">
+          <h4 className="text-lg font-semibold text-white dark:text-white line-clamp-1">
             {note.title}
           </h4>
         </div>

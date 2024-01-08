@@ -19,6 +19,9 @@ function Schedule() {
         <div className="flex flex-col gap-5">
           <BackButton />
           <ScheduleList creator={creator} />
+          <p className="-mt-3 text-xs text-neutral-400 font-light w-full text-center">
+            Scroll to view more
+          </p>
         </div>
 
         <div className="md:col-span-2">

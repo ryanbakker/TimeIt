@@ -33,10 +33,10 @@ function ScheduleList({ creator }: { creator: string }) {
 
   return (
     <div className="bg-neutral-200 shadow-lg p-2 rounded-lg">
-      <ul className="flex flex-col gap-3 max-h-[620px] overflow-scroll">
-        <li>
-          <ScheduleForm userId={creator} />
-        </li>
+      <div className="mb-3">
+        <ScheduleForm userId={creator} />
+      </div>
+      <ul className="flex flex-col gap-3 max-h-[505px] overflow-scroll rounded-md">
         {events.map((event) => (
           <li
             key={event._id}

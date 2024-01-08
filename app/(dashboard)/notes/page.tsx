@@ -1,3 +1,4 @@
+import BackButton from "@/components/shared/BackButton";
 import Heading from "@/components/shared/Heading";
 import NotesCollection from "@/components/shared/NotesCollection";
 import { Button } from "@/components/ui/button";
@@ -15,12 +16,12 @@ async function Notes({ searchParams }: SearchParamProps) {
     query: searchText,
     category,
     page: page,
-    limit: 6,
+    limit: 8,
   });
 
   return (
     <>
-      <div className="wrapper flex flex-row items-end justify-between mt-12">
+      <div className="wrapper flex flex-col mt-12 gap-5">
         <div>
           <div className="w-fit">
             <h1 className="text-3xl font-semibold text-indigo-900 dark:text-indigo-50">
@@ -34,15 +35,18 @@ async function Notes({ searchParams }: SearchParamProps) {
           </h2>
         </div>
 
-        <Button
-          asChild
-          size="lg"
-          className="hover:bg-indigo-700 flex flex-row gap-1.5 items-center"
-        >
-          <Link href="/notes/create">
-            <Plus size={18} /> Create Note
-          </Link>
-        </Button>
+        <div className="flex flex-row justify-between">
+          <BackButton />
+          <Button
+            asChild
+            size="lg"
+            className="bg-indigo-600 hover:bg-indigo-900 dark:text-white flex flex-row gap-1.5 items-center"
+          >
+            <Link href="/notes/create">
+              <Plus size={18} /> Create Note
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <section>

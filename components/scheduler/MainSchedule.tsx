@@ -31,7 +31,7 @@ function renderEventContent(eventInfo: any) {
   return (
     <div className="flex flex-wrap overflow-hidden bg-indigo-200 px-2 py-1.5 rounded-sm w-full event-button hover:bg-indigo-300 transition-all">
       <AlertDialog>
-        <AlertDialogTrigger>
+        <AlertDialogTrigger title="Event Details">
           <p className="font-semibold text-xs text-indigo-900">
             {truncatedTitle}
           </p>
