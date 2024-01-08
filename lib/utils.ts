@@ -117,8 +117,6 @@ export async function getData(): Promise<Grades[]> {
     grades.map(async (grade: any) => {
       const letter = await getLetterById(grade.letter);
 
-      console.log(letter);
-
       return {
         id: grade._id,
         assignment: grade.assignment || "N/A",

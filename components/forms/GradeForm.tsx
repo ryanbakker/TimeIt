@@ -43,8 +43,6 @@ function GradeForm({ userId }: { userId: string }) {
         path: "/grades",
       });
 
-      console.log(newGrade);
-
       if (newGrade) {
         form.reset();
       }
@@ -58,10 +56,10 @@ function GradeForm({ userId }: { userId: string }) {
       <Button
         size="lg"
         asChild
-        className="flex flex-row gap-2 bg-indigo-700 hover:bg-indigo-900"
+        className="flex flex-row gap-2 bg-indigo-600 hover:bg-indigo-900 dark:text-white"
       >
         <AlertDialogTrigger>
-          Add Grade <Plus size={20} />
+          <Plus size={20} /> Add Grade
         </AlertDialogTrigger>
       </Button>
       <AlertDialogContent>

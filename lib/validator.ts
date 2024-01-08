@@ -17,3 +17,9 @@ export const gradeFormSchema = z.object({
   credits: z.coerce.number(),
   letter: z.string(),
 });
+
+export const eventFormSchema = z.object({
+  title: z.string().max(20, "Title must be less than 20 characters"),
+  description: z.string().max(100, "Description has a max of 100 characters"),
+  dateTime: z.date(),
+});

@@ -14,8 +14,6 @@ async function GradesPage() {
 
   const data = await getData();
 
-  console.log("Filtered Data => ", data);
-
   return (
     <div className="bg-white dark:bg-[#121827]">
       <Heading title="Grades" subtitle="Add and understand your grades." />

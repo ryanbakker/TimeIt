@@ -24,7 +24,10 @@ function GradeChart({ grades, size }: GradeChartProps) {
     return acc;
   }, []);
 
-  console.log("Filtered Data => ", combinedGrades);
+  const totalCredits = combinedGrades.reduce(
+    (total: number, grade: any) => total + grade.credits,
+    0
+  );
 
   const valueFormatter = (number: number) =>
     `Credits: ${new Intl.NumberFormat("us").format(number).toString()}`;
@@ -63,11 +66,11 @@ function GradeChart({ grades, size }: GradeChartProps) {
   return (
     <Card className="bg-transparent border-none ring-0 !shadow-none outline-none blur-none p-0 w-full flex items-start justify-center">
       <div>
-        <Title className="text-indigo-700 text-center">
+        <Title className="text-indigo-700 dark:text-indigo-50 text-center">
           Grade Summary (Total)
         </Title>
         <DonutChart
-          className={`mt-6 drop-shadow-none ${
+          className={`mt-6 drop-shadow-none rounded-full p-2 fade-border ${
             size === "lg" && "w-[380px] h-[380px]"
           } ${size === "sm" && "w-[300px] h-[300px]"}`}
           data={combinedGrades}
@@ -80,6 +83,13 @@ function GradeChart({ grades, size }: GradeChartProps) {
           noDataText="Add Grades to Visualize Data"
           onValueChange={(v) => setValue(v)}
         />
+        <p
+          className={`text-center mt-5 mb-12 text-neutral-500 dark:text-neutral-400 font-semibold ${
+            size === "sm" && "hidden"
+          }`}
+        >
+          Total Credits: {new Intl.NumberFormat("us").format(totalCredits)}
+        </p>
       </div>
     </Card>
   );

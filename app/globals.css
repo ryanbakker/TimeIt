@@ -189,7 +189,7 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 85%; /* Change this to 100% to make it as tall as the content */
+  height: 85%;
   width: 3px;
   z-index: 1;
 }
@@ -214,4 +214,68 @@
   background: radial-gradient(circle, transparent, rgba(165, 180, 252, 1));
   border-radius: 50%;
   z-index: -1;
+}
+
+.fade-border {
+  border: 1px solid rgba(0, 0, 0, 0);
+  animation: fadeInBorder 2s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fadeInBorder {
+  from {
+    border-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    border-color: rgba(79, 70, 229, 1);
+  }
+}
+
+/* Main Schedule Styling */
+.fc-day-today {
+  @apply !bg-indigo-50;
+}
+
+.fc-day-today a {
+  @apply !text-indigo-800 font-semibold;
+}
+
+.fc-license-message {
+  @apply hidden !important;
+}
+
+.fc-daygrid-day-number {
+  @apply pr-2 text-indigo-800 !important;
+}
+
+.fc-day a {
+  @apply text-indigo-900 !important;
+}
+
+a.fc-more-link {
+  @apply bg-indigo-400 text-indigo-50 font-medium w-full py-1.5 mt-1 px-2 hover:bg-indigo-500 transition-all !important;
+}
+
+.fc-popover {
+  @apply max-w-[200px] !important;
+}
+
+.fc-popover div.fc-popover-body {
+  @apply min-w-[180px] !important;
+}
+
+.fc-popover-header {
+  @apply text-indigo-800 font-medium !important;
+}
+
+.fc-event {
+  @apply hover:bg-transparent !important;
+}
+
+.event-button button {
+  @apply w-full text-left;
+}
+
+.fc-toolbar button {
+  @apply bg-indigo-900 !important;
 }

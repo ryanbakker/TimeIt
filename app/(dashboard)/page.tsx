@@ -9,7 +9,7 @@ import { getAllNotes } from "@/lib/database/actions/note.actions";
 import { getData } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import { auth } from "@clerk/nextjs";
-import { Award, Plus, StickyNote } from "lucide-react";
+import { Award, Hourglass, Plus, StickyNote } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home({ searchParams }: SearchParamProps) {
@@ -35,10 +35,11 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <WelcomeHeading />
 
         <div className="pattern-dots pattern-indigo-700 pattern-bg-indigo-300 pattern-size-4 pattern-opacity-20 h-screen w-full absolute top-0 left-0 -z-10" />
+
         <div className="radial-filter" />
       </section>
 
-      <section className="bg-neutral-100 pt-12 pb-20 mb-16">
+      <section className="bg-neutral-100 pt-12 pb-20 mb-16 shadow-md">
         <div className="wrapper grid grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col gap-10">
             <div className="w-fit">
@@ -69,7 +70,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
       </section>
 
-      <section className="bg-neutral-100 py-10 mt-16 mb-10">
+      <section className="bg-neutral-100 py-10 mt-16 mb-10 shadow-md">
         <div className="wrapper">
           <div className="flex flex-row items-end justify-between">
             <div>

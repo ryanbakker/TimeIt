@@ -83,8 +83,8 @@ export function GradeTable<TData, TValue>({
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline">
-              Filter <ChevronDown />
+            <Button variant="outline" className="gap-1">
+              Filter <ChevronDown size={20} />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

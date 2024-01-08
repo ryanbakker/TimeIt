@@ -1,5 +1,6 @@
 "use client";
 
+import { Hourglass } from "lucide-react";
 import { useEffect, useState } from "react";
 
 function WelcomeHeading() {
@@ -22,7 +23,7 @@ function WelcomeHeading() {
   }, []);
 
   return (
-    <div className="wrapper z-50">
+    <div className="wrapper z-50 relative">
       <div className="bg-white rounded-xl w-fit py-6 px-7">
         <div className="relative w-fit flex flex-row items-center gap-2">
           <div>
@@ -35,6 +36,12 @@ function WelcomeHeading() {
           and manage your <br /> tasks to get the most out of your education.
         </h2>
       </div>
+
+      <Hourglass
+        className="absolute right-0 -bottom-[140px] text-indigo-300"
+        size={300}
+        fill="#a5b4fc"
+      />
     </div>
   );
 }

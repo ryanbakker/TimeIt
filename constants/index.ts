@@ -12,6 +12,10 @@ export const headerLinks = [
     route: "/notes",
   },
   {
+    label: "Grades",
+    route: "/grades",
+  },
+  {
     label: "Schedule",
     route: "/schedule",
   },
@@ -27,4 +31,10 @@ export const gradeDefaultValues = {
   assignment: "",
   credits: 0,
   letter: "",
+};
+
+export const eventDefaultValues = {
+  title: "",
+  description: "",
+  dateTime: new Date(),
 };
