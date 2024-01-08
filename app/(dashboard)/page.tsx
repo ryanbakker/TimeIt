@@ -76,7 +76,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
       </section>
 
-      <section className="pt-20 pb-12 shadow-inner">
+      <section className="pt-24 pb-28 shadow-inner dark:bg-slate-800">
         <div className="wrapper">
           <div className="flex flex-row items-end justify-between">
             <div>
@@ -117,7 +117,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
       </section>
 
-      <section className="bg-neutral-100 py-10 mt-16 shadow-md">
+      <section className="bg-white dark:bg-[#121827] pt-24 pb-28 shadow-md">
         <div className="wrapper">
           <div className="flex flex-row items-end justify-between">
             <div>

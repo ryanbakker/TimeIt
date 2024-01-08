@@ -50,9 +50,12 @@ function PriorityFilter() {
 
   return (
     <div className="w-full max-w-[360px] flex flex-row items-center relative">
-      <Filter size={22} className="text-neutral-600 absolute left-1.5" />
+      <Filter
+        size={22}
+        className="text-neutral-600 dark:text-neutral-300 absolute left-3"
+      />
       <Select onValueChange={(value: string) => onSelectedPriority(value)}>
-        <SelectTrigger className="w-full max-w-[360px] shadow-none border border-neutral-300 ring-0 pl-[35px] focus-visible:ring-transparent focus:border-neutral-800 focus:ring-0 py-5">
+        <SelectTrigger className="w-full max-w-[360px] shadow-none border border-neutral-300 ring-0 pl-[45px] focus-visible:ring-transparent focus:border-neutral-800 focus:ring-0 py-5">
           <SelectValue placeholder="Priority" />
         </SelectTrigger>
         <SelectContent>

@@ -25,7 +25,7 @@ async function TaskCard({ task }: CardProps) {
               {task.title}
             </h4>
           </div>
-          <div className="bg-gray-200 relative px-4 py-3 flex-1 rounded-b-md z-0 min-h-[140px] w-full flex flex-col justify-between">
+          <div className="bg-indigo-50 dark:bg-slate-700 relative px-4 py-3 flex-1 rounded-b-md z-0 min-h-[140px] w-full flex flex-col justify-between">
             <div className="flex flex-col z-50 justify-between gap-3 flex-1 py-2">
               <p className="line-clamp-2 font-light">{task.description}</p>
               <div className="flex flex-row justify-between">

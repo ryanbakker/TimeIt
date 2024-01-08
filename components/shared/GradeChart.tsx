@@ -67,7 +67,7 @@ function GradeChart({ grades, size }: GradeChartProps) {
     <Card className="bg-transparent border-none ring-0 !shadow-none outline-none blur-none p-0 w-full flex items-start justify-center">
       <div>
         <Title className="text-indigo-700 dark:text-indigo-50 text-center">
-          Grade Summary (Total)
+          Grade Summary
         </Title>
         <DonutChart
           className={`mt-6 drop-shadow-none rounded-full p-1.5 fade-border ${
@@ -76,6 +76,7 @@ function GradeChart({ grades, size }: GradeChartProps) {
           data={combinedGrades}
           category="credits"
           showAnimation={true}
+          animationDuration={500}
           variant="pie"
           index="grade"
           valueFormatter={valueFormatter}
@@ -84,9 +85,7 @@ function GradeChart({ grades, size }: GradeChartProps) {
           onValueChange={(v) => setValue(v)}
         />
         <p
-          className={`text-center mt-5 mb-12 text-neutral-500 dark:text-neutral-400 font-semibold ${
-            size === "sm" && "hidden"
-          }`}
+          className={`text-center mt-5 mb-12 text-neutral-500 dark:text-neutral-400 font-semibold`}
         >
           Total Credits: {new Intl.NumberFormat("us").format(totalCredits)}
         </p>

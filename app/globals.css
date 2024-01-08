@@ -230,7 +230,7 @@
 .fade-border {
   border: 1px solid rgba(0, 0, 0, 0);
   animation: fadeInBorder 2s ease-in-out forwards;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
 }
 
 @keyframes fadeInBorder {

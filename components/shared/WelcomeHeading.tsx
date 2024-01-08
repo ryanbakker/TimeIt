@@ -24,21 +24,23 @@ function WelcomeHeading() {
 
   return (
     <div className="wrapper z-50 relative">
-      <div className="bg-white rounded-xl w-fit py-6 px-7">
+      <div className="bg-white dark:bg-slate-700 rounded-xl w-fit py-6 px-7">
         <div className="relative w-fit flex flex-row items-center gap-2">
           <div>
-            <h1 className="text-3xl font-bold text-indigo-900">Dashboard</h1>
-            <div className="h-[3px] w-full bg-indigo-900 rounded-full" />
+            <h1 className="text-3xl font-bold text-indigo-900 dark:text-indigo-50">
+              Dashboard
+            </h1>
+            <div className="h-[3px] w-full bg-indigo-900 dark:bg-indigo-50 rounded-full" />
           </div>
         </div>
-        <h2 className="pt-2 text-slate-600 dark:text-slate-600 font-light">
+        <h2 className="pt-2 text-slate-600 dark:text-slate-300 font-light">
           <span className="font-semibold">{greeting} person,</span> take control
           and manage your <br /> tasks to get the most out of your education.
         </h2>
       </div>
 
       <Hourglass
-        className="absolute right-0 -bottom-[140px] text-indigo-300"
+        className="absolute right-0 -bottom-[140px] text-indigo-300 dark:text-indigo-800 fill-[#a5b4fc] dark:fill-[#3730a3]"
         size={300}
         fill="#a5b4fc"
       />

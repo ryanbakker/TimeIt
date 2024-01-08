@@ -12,7 +12,7 @@ function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="border-t z-50 bg-white">
+    <footer className="border-t z-50 bg-white dark:bg-slate-800">
       <div className="wrapper flex flex-row justify-between items-center">
         <div>
           <h2

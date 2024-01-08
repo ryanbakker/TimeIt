@@ -40,12 +40,15 @@ function SearchTasks({
 
   return (
     <div className="relative flex flex-row items-center w-full max-w-[360px]">
-      <Search size={22} className="text-neutral-600 absolute left-1.5" />
+      <Search
+        size={22}
+        className="text-neutral-600 dark:text-neutral-300 absolute left-3"
+      />
       <Input
         type="text"
         placeholder={placeholder}
         onChange={(e) => setQuery(e.target.value)}
-        className="shadow-none border border-neutral-300 ring-0 pl-[35px] focus-visible:ring-transparent focus:border-neutral-800 !py-5"
+        className="shadow-none border border-neutral-300 ring-0 pl-[45px] focus-visible:ring-transparent focus:border-neutral-800 !py-5"
       />
     </div>
   );
