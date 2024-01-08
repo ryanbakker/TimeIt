@@ -21,7 +21,7 @@ function Heading({ title, subtitle, icon }: HeadingProps) {
         </div>
       </div>
       {subtitle && (
-        <h2 className="pt-2 text-slate-600 dark:text-slate-400 font-light">
+        <h2 className="pt-2 text-slate-600 dark:text-slate-400 font-light max-w-[540px]">
           {subtitle}
         </h2>
       )}

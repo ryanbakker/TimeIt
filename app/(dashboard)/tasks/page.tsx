@@ -19,35 +19,35 @@ async function Tasks({ searchParams }: SearchParamProps) {
     query: searchText,
     priority,
     page: page,
-    limit: 6,
+    limit: 8,
   });
 
   return (
     <>
       <section>
-        <Heading title="Tasks" subtitle="Keep track of your assignments" />
+        <Heading
+          title="Tasks"
+          subtitle="Create tasks for projects and assignments to help keep track of your work. Prioritise your work and remeber to hit completed when it's done!"
+        />
 
         <div className="wrapper flex flex-row items-center justify-between">
           <BackButton />
+          <div className="wrapper flex flex-row items-center gap-3 justify-center">
+            <SearchTasks />
+            <PriorityFilter />
+          </div>
           <TaskForm userId={userId} />
         </div>
       </section>
 
-      <section>
-        <div className="wrapper flex flex-row items-center gap-3">
-          <SearchTasks />
-          <PriorityFilter />
-        </div>
-
-        <TaskCollection
-          data={tasks?.data}
-          emptyTitle="Good Job!"
-          emptyStateSubtext="No tasks to complete"
-          limit={6}
-          page={page}
-          totalPages={tasks?.totalPages}
-        />
-      </section>
+      <TaskCollection
+        data={tasks?.data}
+        emptyTitle="Good Job!"
+        emptyStateSubtext="No tasks to complete"
+        limit={6}
+        page={page}
+        totalPages={tasks?.totalPages}
+      />
     </>
   );
 }

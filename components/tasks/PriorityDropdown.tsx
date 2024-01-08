@@ -64,7 +64,7 @@ function PriorityDropdown({ value, onChangeHandler }: PriorityProps) {
             </SelectItem>
           ))}
 
-        <AlertDialog>
+        {/* <AlertDialog>
           <AlertDialogTrigger className="flex w-full rounded-sm py-3 pl-8 text-slate-950 hover:bg-slate-700 hover:text-white bg-slate-400 focus:text-purple-500">
             Add New Priority
           </AlertDialogTrigger>
@@ -89,7 +89,7 @@ function PriorityDropdown({ value, onChangeHandler }: PriorityProps) {
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
-        </AlertDialog>
+        </AlertDialog> */}
       </SelectContent>
     </Select>
   );

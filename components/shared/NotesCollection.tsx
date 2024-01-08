@@ -20,7 +20,7 @@ function NotesCollection({
             {data.map((note) => (
               <li
                 key={note._id}
-                className="border border-indigo-800/30 shadow-md rounded-md hover:shadow-lg transition-all scale-100 hover:scale-[1.004] ease-in-out w-full"
+                className="border border-indigo-800/30 shadow-md rounded-md hover:shadow-lg transition-all scale-100 hover:scale-[1.02] ease-in-out w-full"
               >
                 <Card note={note} />
               </li>

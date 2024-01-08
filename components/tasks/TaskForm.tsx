@@ -40,8 +40,6 @@ function TaskForm({ userId }: { userId: string }) {
       const adjustedDate = new Date(values.deadline);
       const utcDate = new Date(adjustedDate.toISOString());
 
-      utcDate.setUTCDate(utcDate.getUTCDate() + 1);
-
       const newTask = await createTask({
         task: { ...values, deadline: utcDate },
         userId,
