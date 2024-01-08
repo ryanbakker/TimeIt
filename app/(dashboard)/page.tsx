@@ -4,18 +4,28 @@ import { GradeTableLite } from "@/components/gradesTable/grade-table-lite";
 import GradeChart from "@/components/shared/GradeChart";
 import NotesCollection from "@/components/shared/NotesCollection";
 import WelcomeHeading from "@/components/shared/WelcomeHeading";
+import TaskCollection from "@/components/tasks/TaskCollection";
 import { Button } from "@/components/ui/button";
 import { getAllNotes } from "@/lib/database/actions/note.actions";
+import { getAllTasks } from "@/lib/database/actions/task.actions";
 import { getData } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import { auth } from "@clerk/nextjs";
-import { Award, Calendar, Hourglass, Plus, StickyNote } from "lucide-react";
+import {
+  Award,
+  Calendar,
+  Hourglass,
+  ListTodo,
+  MoveRight,
+  Plus,
+  StickyNote,
+} from "lucide-react";
 import Link from "next/link";
 
 export default async function Home({ searchParams }: SearchParamProps) {
-  const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams.query as string) || "";
   const category = (searchParams?.category as string) || "";
+  const priority = (searchParams?.priority as string) || "";
 
   const notes = await getAllNotes({
     query: searchText,
@@ -24,8 +34,12 @@ export default async function Home({ searchParams }: SearchParamProps) {
     limit: 4,
   });
 
-  const { sessionClaims } = auth();
-  const userId = sessionClaims?.userId as string;
+  const tasks = await getAllTasks({
+    query: searchText,
+    priority,
+    page: 1,
+    limit: 4,
+  });
 
   const data = await getData();
 
@@ -62,14 +76,44 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
       </section>
 
-      <section className="shadow-inner py-12">
+      <section className="pt-20 pb-12 shadow-inner">
         <div className="wrapper">
-          <div className="w-fit">
-            <h2 className="font-semibold text-2xl text-indigo-900 dark:text-indigo-50 ">
-              Tasks
-            </h2>
-            <div className="h-[2.5px] w-full bg-indigo-800 dark:bg-indigo-50 rounded-full" />
+          <div className="flex flex-row items-end justify-between">
+            <div>
+              <h2 className="font-semibold text-2xl text-indigo-900 dark:text-indigo-50">
+                Tasks
+              </h2>
+              <div className="h-[2.5px] w-full bg-indigo-800 dark:bg-indigo-50 rounded-full" />
+            </div>
+
+            <Button
+              size="lg"
+              asChild
+              className="bg-indigo-600 hover:bg-indigo-900 dark:text-white"
+            >
+              <Link
+                href="/tasks?priority=Urgent"
+                className="flex flex-row items-center gap-2"
+              >
+                Urgent Tasks <MoveRight size={18} />
+              </Link>
+            </Button>
           </div>
+
+          <TaskCollection
+            data={tasks?.data}
+            emptyTitle="Good job! All tasks completed"
+            emptyStateSubtext="Create new tasks to see them here"
+            limit={4}
+            page={1}
+            totalPages={1}
+          />
+
+          <Button size="lg" asChild>
+            <Link href="/tasks" className="flex flex-row items-center gap-2">
+              <ListTodo size={18} /> Go to Tasks
+            </Link>
+          </Button>
         </div>
       </section>
 
@@ -98,7 +142,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
           <NotesCollection
             data={notes?.data}
-            emptyTitle="No Meets Found"
+            emptyTitle="No Notes Found"
             emptyStateSubtext="Come back later"
             limit={3}
             page={1}
