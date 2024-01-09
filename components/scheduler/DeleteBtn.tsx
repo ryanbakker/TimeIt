@@ -25,7 +25,7 @@ function DeleteBtn({ eventId }: { eventId: any }) {
         title="Delete Note"
       >
         <Trash2
-          className="text-neutral-600 hover:text-red-400 transition-all "
+          className="text-neutral-600 dark:text-neutral-300 hover:text-red-400 transition-all "
           size={20}
         />
       </AlertDialogTrigger>

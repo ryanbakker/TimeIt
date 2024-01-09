@@ -66,7 +66,7 @@ function ScheduleForm({ userId }: { userId: string }) {
       <Button
         asChild
         size="lg"
-        className="flex flex-row gap-1 bg-indigo-600 hover:bg-indigo-900 dark:text-white"
+        className="flex flex-row items-center gap-2 w-full"
       >
         <AlertDialogTrigger className="w-full">
           <Plus size={20} /> Create Event

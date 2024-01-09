@@ -9,7 +9,7 @@ function Schedule() {
   const creator = sessionClaims?.userId as any;
 
   return (
-    <div className="bg-neutral-50">
+    <div className="bg-neutral-50 dark:bg-slate-800">
       <Heading
         title="Schedule"
         subtitle="Add your timetable and never lose it"
@@ -19,7 +19,7 @@ function Schedule() {
         <div className="flex flex-col gap-5">
           <BackButton />
           <ScheduleList creator={creator} />
-          <p className="-mt-3 text-xs text-neutral-400 font-light w-full text-center">
+          <p className="-mt-3 text-xs text-neutral-400 dark:text-neutral-500 font-light w-full text-center">
             Scroll to view more
           </p>
         </div>

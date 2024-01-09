@@ -83,7 +83,7 @@ export function GradeTable<TData, TValue>({
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="gap-1">
+            <Button variant="outline" className="gap-1 dark:bg-slate-700">
               Filter <ChevronDown size={20} />
             </Button>
           </DropdownMenuTrigger>
@@ -168,6 +168,7 @@ export function GradeTable<TData, TValue>({
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
+            className="dark:bg-slate-700 hover:dark:bg-slate-500"
           >
             Previous
           </Button>
@@ -176,6 +177,7 @@ export function GradeTable<TData, TValue>({
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
+            className="dark:bg-slate-700 hover:dark:bg-slate-500"
           >
             Next
           </Button>

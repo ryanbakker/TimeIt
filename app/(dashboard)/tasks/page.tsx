@@ -30,13 +30,18 @@ async function Tasks({ searchParams }: SearchParamProps) {
           subtitle="Create tasks for projects and assignments to help keep track of your work. Prioritise your work and remeber to hit completed when it's done!"
         />
 
-        <div className="wrapper flex flex-row items-center justify-between">
+        <div className="wrapper flex flex-row items-center justify-between gap-8 md:gap-0">
           <BackButton />
-          <div className="wrapper flex flex-row items-center gap-3 justify-center">
+          <div className="wrapper hidden md:flex flex-row items-center gap-3 justify-center">
             <SearchTasks />
             <PriorityFilter />
           </div>
           <TaskForm userId={userId} />
+        </div>
+
+        <div className="wrapper flex md:hidden flex-col items-center gap-3 justify-center">
+          <SearchTasks />
+          <PriorityFilter />
         </div>
       </section>
 

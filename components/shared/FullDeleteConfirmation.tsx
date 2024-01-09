@@ -23,7 +23,7 @@ export const FullDeleteConfirmation = ({ noteId }: { noteId: string }) => {
 
   return (
     <AlertDialog>
-      <AlertDialogTrigger className="flex flex-row gap-1.5 items-center rounded-md py-2 px-8 bg-red-500 text-white hover:bg-red-600 transition-all">
+      <AlertDialogTrigger className="flex flex-row gap-1.5 items-center justify-center rounded-md py-2 w-full sm:w-auto sm:px-8 bg-red-500 dark:bg-red-800 hover:dark:bg-red-950 text-white hover:bg-red-600 transition-all">
         <Trash2 /> Delete
       </AlertDialogTrigger>
 

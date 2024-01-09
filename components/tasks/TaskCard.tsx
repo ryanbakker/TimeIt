@@ -40,7 +40,7 @@ async function TaskCard({ task }: CardProps) {
           </div>
         </div>
       </AlertDialogTrigger>
-      <AlertDialogContent>
+      <AlertDialogContent className="dark:bg-slate-800">
         <AlertDialogHeader>
           <AlertDialogTitle>{task.title}</AlertDialogTitle>
           <AlertDialogDescription>{task.description}</AlertDialogDescription>

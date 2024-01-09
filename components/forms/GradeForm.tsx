@@ -56,7 +56,7 @@ function GradeForm({ userId }: { userId: string }) {
       <Button
         size="lg"
         asChild
-        className="flex flex-row gap-2 bg-indigo-600 hover:bg-indigo-900 dark:text-white"
+        className="flex flex-row items-center gap-2 w-full md:w-fit"
       >
         <AlertDialogTrigger>
           <Plus size={20} /> Add Grade

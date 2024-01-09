@@ -60,7 +60,7 @@ async function Note({ params: { id }, searchParams }: SearchParamProps) {
       <div className="wrapper flex flex-row gap-2 items-center z-50 mb-12">
         <Link
           href={`/notes/${note._id}/edit`}
-          className="flex flex-row gap-1.5 items-center rounded-md py-2 px-8 bg-slate-500 text-white hover:bg-slate-600"
+          className="flex flex-row gap-1.5 items-center rounded-md py-2 justify-center w-full sm:px-8 bg-slate-500 text-white hover:bg-slate-600 sm:w-auto"
         >
           <FileEdit size={18} /> Edit
         </Link>

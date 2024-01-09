@@ -39,7 +39,7 @@ function SearchTasks({
   }, [query, searchParams, router]);
 
   return (
-    <div className="relative flex flex-row items-center w-full max-w-[360px]">
+    <div className="relative flex flex-row items-center w-full md:max-w-[360px]">
       <Search
         size={22}
         className="text-neutral-600 dark:text-neutral-300 absolute left-3"

@@ -131,6 +131,7 @@ export function GradeTableLite<TData, TValue>({
             size="sm"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
+            className="dark:bg-slate-700 hover:dark:bg-slate-500"
           >
             Previous
           </Button>
@@ -139,6 +140,7 @@ export function GradeTableLite<TData, TValue>({
             size="sm"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
+            className="dark:bg-slate-700 hover:dark:bg-slate-500"
           >
             Next
           </Button>

@@ -21,7 +21,7 @@ async function GradesPage() {
       <section>
         <div className="wrapper grid grid-cols-1 md:grid-cols-2">
           <div>
-            <div className="flex flex-row gap-3 justify-between">
+            <div className="flex flex-row gap-8 md:gap-0 justify-between">
               <BackButton />
               <GradeForm userId={userId} />
             </div>

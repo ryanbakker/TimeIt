@@ -1,26 +1,17 @@
-import { columns } from "@/components/gradesTable/columns";
-import { columnsLite } from "@/components/gradesTable/columns-lite";
-import { GradeTableLite } from "@/components/gradesTable/grade-table-lite";
+import Link from "next/link";
+import ActionButton from "@/components/shared/ActionButton";
 import GradeChart from "@/components/shared/GradeChart";
 import NotesCollection from "@/components/shared/NotesCollection";
 import WelcomeHeading from "@/components/shared/WelcomeHeading";
 import TaskCollection from "@/components/tasks/TaskCollection";
+import { columnsLite } from "@/components/gradesTable/columns-lite";
+import { GradeTableLite } from "@/components/gradesTable/grade-table-lite";
 import { Button } from "@/components/ui/button";
 import { getAllNotes } from "@/lib/database/actions/note.actions";
 import { getAllTasks } from "@/lib/database/actions/task.actions";
 import { getData } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
-import { auth } from "@clerk/nextjs";
-import {
-  Award,
-  Calendar,
-  Hourglass,
-  ListTodo,
-  MoveRight,
-  Plus,
-  StickyNote,
-} from "lucide-react";
-import Link from "next/link";
+import { Calendar, Hourglass, MoveRight, Plus } from "lucide-react";
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const searchText = (searchParams.query as string) || "";
@@ -55,10 +46,10 @@ export default async function Home({ searchParams }: SearchParamProps) {
       </section>
 
       <section className="bg-white dark:bg-[#121827] pt-12 pb-20 shadow-md">
-        <div className="wrapper grid grid-cols-1 md:grid-cols-2">
+        <div className="wrapper grid grid-cols-1 md:grid-cols-2 gap-10">
           <div className="flex flex-col gap-10">
             <div className="w-fit">
-              <h2 className="font-semibold text-2xl text-indigo-900 dark:text-indigo-50 ">
+              <h2 className="font-semibold text-3xl text-indigo-900 dark:text-indigo-50">
                 Grades
               </h2>
               <div className="h-[2.5px] w-full bg-indigo-800 dark:bg-indigo-50 rounded-full" />
@@ -66,11 +57,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
             <GradeTableLite columns={columnsLite} data={data} />
 
-            <Button size="lg" asChild className="w-fit gap-2">
-              <Link href="/grades">
-                <Award size={20} /> Go to Grades
-              </Link>
-            </Button>
+            <ActionButton title="Go to Grades" icon="Award" route="/grades" />
           </div>
           <GradeChart grades={data} size="sm" />
         </div>
@@ -78,9 +65,9 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
       <section className="pt-24 pb-28 shadow-inner dark:bg-slate-800">
         <div className="wrapper">
-          <div className="flex flex-row items-end justify-between">
+          <div className="flex flex-row items-center md:items-end justify-between">
             <div>
-              <h2 className="font-semibold text-2xl text-indigo-900 dark:text-indigo-50">
+              <h2 className="font-semibold text-3xl text-indigo-900 dark:text-indigo-50">
                 Tasks
               </h2>
               <div className="h-[2.5px] w-full bg-indigo-800 dark:bg-indigo-50 rounded-full" />
@@ -99,29 +86,27 @@ export default async function Home({ searchParams }: SearchParamProps) {
               </Link>
             </Button>
           </div>
+        </div>
 
-          <TaskCollection
-            data={tasks?.data}
-            emptyTitle="Good job! All tasks completed"
-            emptyStateSubtext="Create new tasks to see them here"
-            limit={4}
-            page={1}
-            totalPages={1}
-          />
+        <TaskCollection
+          data={tasks?.data}
+          emptyTitle="Good job! All tasks completed"
+          emptyStateSubtext="Create new tasks to see them here"
+          limit={4}
+          page={1}
+          totalPages={1}
+        />
 
-          <Button size="lg" asChild>
-            <Link href="/tasks" className="flex flex-row items-center gap-2">
-              <ListTodo size={18} /> Go to Tasks
-            </Link>
-          </Button>
+        <div className="wrapper">
+          <ActionButton title="Go to Tasks" icon="Todo" route="/tasks" />
         </div>
       </section>
 
       <section className="bg-white dark:bg-[#121827] pt-24 pb-28 shadow-md">
         <div className="wrapper">
-          <div className="flex flex-row items-end justify-between">
+          <div className="flex flex-row items-center md:items-end justify-between">
             <div>
-              <h2 className="font-semibold text-2xl text-indigo-900 dark:text-indigo-50">
+              <h2 className="font-semibold text-3xl text-indigo-900 dark:text-indigo-50">
                 Notes
               </h2>
               <div className="h-[2.5px] w-full bg-indigo-800 dark:bg-indigo-50 rounded-full" />
@@ -139,28 +124,26 @@ export default async function Home({ searchParams }: SearchParamProps) {
               </Link>
             </Button>
           </div>
+        </div>
 
-          <NotesCollection
-            data={notes?.data}
-            emptyTitle="No Notes Found"
-            emptyStateSubtext="Come back later"
-            limit={3}
-            page={1}
-            totalPages={1}
-          />
+        <NotesCollection
+          data={notes?.data}
+          emptyTitle="No Notes Found"
+          emptyStateSubtext="Come back later"
+          limit={3}
+          page={1}
+          totalPages={1}
+        />
 
-          <Button size="lg" asChild>
-            <Link href="/notes" className="flex flex-row items-center gap-2">
-              <StickyNote size={18} /> Go to Notes
-            </Link>
-          </Button>
+        <div className="wrapper">
+          <ActionButton title="Go to Notes" icon="Note" route="/notes" />
         </div>
       </section>
 
       <section className="bg-gradient-to-tr from-indigo-950 to-indigo-600 py-12 relative z-0">
         <div className="wrapper z-50 relative">
           <div className="w-fit mb-6">
-            <h2 className="font-semibold text-2xl text-white">Schedule</h2>
+            <h2 className="font-semibold text-3xl text-white">Schedule</h2>
             <div className="h-[2.5px] w-full bg-white rounded-full" />
           </div>
 

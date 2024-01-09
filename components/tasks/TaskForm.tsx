@@ -58,7 +58,10 @@ function TaskForm({ userId }: { userId: string }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size="lg" className="flex flex-row items-center gap-2">
+        <Button
+          size="lg"
+          className="flex flex-row items-center gap-2 w-full md:w-fit"
+        >
           <Plus /> Create Task
         </Button>
       </AlertDialogTrigger>

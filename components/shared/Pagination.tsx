@@ -31,7 +31,7 @@ function Pagination({ page, totalPages, urlParamName }: PaginationProps) {
       <Button
         size="lg"
         variant="outline"
-        className="w-28"
+        className="w-28 dark:bg-slate-600"
         onClick={() => onClick("prev")}
         disabled={Number(page) <= 1}
       >
@@ -40,7 +40,7 @@ function Pagination({ page, totalPages, urlParamName }: PaginationProps) {
       <Button
         size="lg"
         variant="outline"
-        className="w-28"
+        className="w-28 dark:bg-slate-600"
         onClick={() => onClick("next")}
         disabled={Number(page) >= totalPages}
       >

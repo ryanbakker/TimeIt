@@ -32,7 +32,7 @@ function ScheduleList({ creator }: { creator: string }) {
   }, [creator]);
 
   return (
-    <div className="bg-neutral-200 shadow-lg p-2 rounded-lg">
+    <div className="bg-neutral-200 dark:bg-slate-700 shadow-lg p-2 rounded-lg">
       <div className="mb-3">
         <ScheduleForm userId={creator} />
       </div>
@@ -40,7 +40,7 @@ function ScheduleList({ creator }: { creator: string }) {
         {events.map((event) => (
           <li
             key={event._id}
-            className="w-full bg-white shadow-md rounded-md p-3 flex flex-row justify-between items-center"
+            className="w-full bg-white dark:bg-slate-500 shadow-md rounded-md p-3 flex flex-row justify-between items-center"
           >
             <div>
               <h5 className="font-medium text-base">{event.title}</h5>

@@ -21,7 +21,7 @@ function TaskAlertFooter({ taskId }: { taskId: string }) {
             runFireworks();
           })
         }
-        className="bg-transparent border border-indigo-700 text-indigo-700 hover:bg-indigo-700 hover:text-white transition-all"
+        className="bg-transparent border border-indigo-700 dark:border-indigo-500 dark:text-indigo-500 hover:dark:bg-indigo-500 text-indigo-700 hover:bg-indigo-700 hover:text-white transition-all"
       >
         Completed
       </Button>

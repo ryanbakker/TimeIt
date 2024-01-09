@@ -35,12 +35,12 @@ async function Notes({ searchParams }: SearchParamProps) {
           </h2>
         </div>
 
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between gap-8 md:gap-0">
           <BackButton />
           <Button
             asChild
             size="lg"
-            className="bg-indigo-600 hover:bg-indigo-900 dark:text-white flex flex-row gap-1.5 items-center"
+            className="flex flex-row items-center gap-2 w-full md:w-fit"
           >
             <Link href="/notes/create">
               <Plus size={18} /> Create Note
