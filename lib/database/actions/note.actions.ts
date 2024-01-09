@@ -90,6 +90,7 @@ export async function updateNote({ userId, note, path }: UpdateNoteParams) {
 // Get all notes
 export async function getAllNotes({
   query,
+  creator,
   limit = 6,
   page,
   category,
@@ -103,10 +104,12 @@ export async function getAllNotes({
     const categoryCondition = category
       ? await getCategoryByName(category)
       : null;
+    const creatorCondition = creator ? { creator: creator } : null;
     const conditions = {
       $and: [
         titleCondition,
         categoryCondition ? { category: categoryCondition._id } : {},
+        creatorCondition ? { creator: creatorCondition.creator } : {},
       ],
     };
 

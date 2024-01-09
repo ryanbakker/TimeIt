@@ -10,12 +10,13 @@ import { auth } from "@clerk/nextjs";
 
 async function Tasks({ searchParams }: SearchParamProps) {
   const { sessionClaims } = auth();
-  const userId = sessionClaims?.userId as string;
+  const creator = sessionClaims?.userId as string;
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams.query as string) || "";
   const priority = (searchParams?.priority as string) || "";
 
   const tasks = await getAllTasks({
+    creator: creator,
     query: searchText,
     priority,
     page: page,
@@ -36,7 +37,7 @@ async function Tasks({ searchParams }: SearchParamProps) {
             <SearchTasks />
             <PriorityFilter />
           </div>
-          <TaskForm userId={userId} />
+          <TaskForm userId={creator} />
         </div>
 
         <div className="wrapper flex md:hidden flex-col items-center gap-3 justify-center">

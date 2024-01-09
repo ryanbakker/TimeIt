@@ -89,6 +89,7 @@ export async function updateTask({ userId, task, path }: UpdateTaskParams) {
 // Get all tasks
 export async function getAllTasks({
   query,
+  creator,
   limit = 6,
   page,
   priority,
@@ -102,10 +103,12 @@ export async function getAllTasks({
     const priorityCondition = priority
       ? await getPriorityByName(priority)
       : null;
+    const creatorCondition = creator ? { creator: creator } : null;
     const conditions = {
       $and: [
         titleCondition,
         priorityCondition ? { priority: priorityCondition._id } : {},
+        creatorCondition ? { creator: creatorCondition.creator } : {},
       ],
     };
 

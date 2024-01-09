@@ -49,6 +49,7 @@ export type GetAllNotesParams = {
   category: string;
   limit: number;
   page: number;
+  creator: string;
 };
 
 export type GetNotesByUserParams = {
@@ -178,6 +179,7 @@ export type GetAllTasksParams = {
   priority: string;
   limit: number;
   page: number;
+  creator: string;
 };
 
 export type GetTasksByUserParams = {

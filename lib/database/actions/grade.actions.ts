@@ -46,26 +46,6 @@ export async function createGrade({ userId, grade, path }: CreateGradeParams) {
   }
 }
 
-// export async function getAllGrades({ letter }: GetAllGradesParams) {
-//   try {
-//     await connectToDatabase();
-
-//     const letterCondition = letter ? await getLetterByGrade(letter) : null;
-//     const conditions = {
-//       $and: [letterCondition ? { letter: letterCondition._id } : {}],
-//     };
-
-//     const gradesQuery = Grade.find(conditions).sort({ createdAt: "desc" });
-
-//     const grades = await populateGrade(gradesQuery);
-//     const gradesCount = await Grade.countDocuments(conditions);
-
-//     return { data: JSON.parse(JSON.stringify(grades)) };
-//   } catch (error) {
-//     handleError(error);
-//   }
-// }
-
 export async function getAllGradesByUser({ creator }: GetAllGradesParams) {
   try {
     await connectToDatabase();

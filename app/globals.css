@@ -290,3 +290,7 @@ a.fc-more-link {
 .fc-toolbar button {
   @apply bg-indigo-900 !important;
 }
+
+.tremor-Flex-root {
+  @apply border-none !important;
+}

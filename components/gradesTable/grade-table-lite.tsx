@@ -117,7 +117,7 @@ export function GradeTableLite<TData, TValue>({
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  Start adding your grades
                 </TableCell>
               </TableRow>
             )}

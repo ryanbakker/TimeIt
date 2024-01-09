@@ -12,13 +12,17 @@ import { getAllTasks } from "@/lib/database/actions/task.actions";
 import { getData } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import { Calendar, Hourglass, MoveRight, Plus } from "lucide-react";
+import { auth } from "@clerk/nextjs";
 
 export default async function Home({ searchParams }: SearchParamProps) {
+  const { sessionClaims } = auth();
+  const creator = sessionClaims?.userId as string;
   const searchText = (searchParams.query as string) || "";
   const category = (searchParams?.category as string) || "";
   const priority = (searchParams?.priority as string) || "";
 
   const notes = await getAllNotes({
+    creator: creator,
     query: searchText,
     category,
     page: 1,
@@ -26,6 +30,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
   });
 
   const tasks = await getAllTasks({
+    creator: creator,
     query: searchText,
     priority,
     page: 1,
@@ -128,8 +133,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
         <NotesCollection
           data={notes?.data}
-          emptyTitle="No Notes Found"
-          emptyStateSubtext="Come back later"
+          emptyTitle="You have no notes"
+          emptyStateSubtext="Create new notes to see them here"
           limit={3}
           page={1}
           totalPages={1}

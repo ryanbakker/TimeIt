@@ -1,3 +1,4 @@
+import { Hourglass } from "lucide-react";
 import Image from "next/image";
 
 // Theme - Noto Sans
@@ -12,7 +13,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           </section>
           <section className="flex justify-end items-center flex-col gap-12">
             <div className="flex flex-col gap-2 w-full md:px-16">
-              <h1 className="text-6xl font-semibold text-white">TimeIt</h1>
+              <h1 className="text-6xl font-semibold text-white flex flex-row items-center gap-2">
+                <Hourglass size={46} className="mt-0.5" /> TimeIt
+              </h1>
               <p className="font-light tracking-wide text-indigo-300">
                 Get the most out of your education
               </p>

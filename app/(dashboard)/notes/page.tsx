@@ -4,15 +4,19 @@ import NotesCollection from "@/components/shared/NotesCollection";
 import { Button } from "@/components/ui/button";
 import { getAllNotes } from "@/lib/database/actions/note.actions";
 import { SearchParamProps } from "@/types";
+import { auth } from "@clerk/nextjs";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 
 async function Notes({ searchParams }: SearchParamProps) {
+  const { sessionClaims } = auth();
+  const creator = sessionClaims?.userId as string;
   const page = Number(searchParams?.page) || 1;
   const searchText = (searchParams.query as string) || "";
   const category = (searchParams?.category as string) || "";
 
   const notes = await getAllNotes({
+    creator: creator,
     query: searchText,
     category,
     page: page,
@@ -52,8 +56,8 @@ async function Notes({ searchParams }: SearchParamProps) {
       <section>
         <NotesCollection
           data={notes?.data}
-          emptyTitle="No Meets Found"
-          emptyStateSubtext="Come back later"
+          emptyTitle="You have no notes"
+          emptyStateSubtext="Create new notes to see them here"
           limit={6}
           page={page}
           totalPages={notes?.totalPages}
