@@ -120,7 +120,6 @@ export type NoteCollectionProps = {
   page: number | string;
   totalPages?: number;
   urlParamName?: string;
-  collectionType?: "All_Notes" | "Preview_Notes";
 };
 
 // Grades

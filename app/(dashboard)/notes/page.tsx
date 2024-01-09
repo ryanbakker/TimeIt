@@ -1,6 +1,7 @@
 import BackButton from "@/components/shared/BackButton";
 import Heading from "@/components/shared/Heading";
 import NotesCollection from "@/components/shared/NotesCollection";
+import SearchBar from "@/components/shared/SearchBar";
 import { Button } from "@/components/ui/button";
 import { getAllNotes } from "@/lib/database/actions/note.actions";
 import { SearchParamProps } from "@/types";
@@ -25,22 +26,17 @@ async function Notes({ searchParams }: SearchParamProps) {
 
   return (
     <>
-      <div className="wrapper flex flex-col mt-12 gap-5">
-        <div>
-          <div className="w-fit">
-            <h1 className="text-3xl font-semibold text-indigo-900 dark:text-indigo-50">
-              Notes
-            </h1>
+      <section>
+        <Heading
+          title="Notes"
+          subtitle="Create and store all your class notes in one place"
+        />
 
-            <div className="h-[3px] w-full bg-indigo-900 dark:bg-indigo-50 rounded-full" />
-          </div>
-          <h2 className="pt-2 text-slate-600 dark:text-slate-400 font-light">
-            Create and store all your class notes in one place
-          </h2>
-        </div>
-
-        <div className="flex flex-row justify-between gap-8 md:gap-0">
+        <div className="wrapper flex flex-row items-center justify-between gap-8 md:gap-0">
           <BackButton />
+          <div className="wrapper hidden md:flex flex-row items-center gap-3 justify-center">
+            <SearchBar />
+          </div>
           <Button
             asChild
             size="lg"
@@ -51,7 +47,11 @@ async function Notes({ searchParams }: SearchParamProps) {
             </Link>
           </Button>
         </div>
-      </div>
+
+        <div className="wrapper flex md:hidden flex-col items-center gap-3 justify-center">
+          <SearchBar />
+        </div>
+      </section>
 
       <section>
         <NotesCollection

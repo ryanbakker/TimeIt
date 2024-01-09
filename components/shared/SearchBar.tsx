@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Input } from "../ui/input";
 
-function SearchTasks({
+function SearchBar({
   placeholder = "Search title...",
 }: {
   placeholder?: string;
@@ -54,4 +54,4 @@ function SearchTasks({
   );
 }
 
-export default SearchTasks;
+export default SearchBar;

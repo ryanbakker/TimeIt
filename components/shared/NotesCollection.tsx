@@ -9,7 +9,6 @@ function NotesCollection({
   emptyStateSubtext,
   page,
   totalPages = 0,
-  collectionType,
   urlParamName,
 }: NoteCollectionProps) {
   return (
