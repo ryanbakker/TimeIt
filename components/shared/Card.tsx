@@ -9,9 +9,10 @@ import { markdownToHtml } from "./MarkdownPreview";
 
 type CardProps = {
   note: INote;
+  cardType: string;
 };
 
-async function Card({ note }: CardProps) {
+async function Card({ note, cardType }: CardProps) {
   const { sessionClaims } = auth();
   const userId = sessionClaims?.userId as string;
   const isNoteCreator = userId === note.creator._id.toString();
@@ -37,9 +38,14 @@ async function Card({ note }: CardProps) {
             {note.title}
           </h4>
         </div>
-        <div className="bg-indigo-300/20 relative px-4 py-3 flex-1 rounded-b-md z-0 min-h-[140px] w-full flex flex-col justify-between">
+        <div className="bg-indigo-300/20 relative px-4 py-3 flex-1 rounded-b-md z-0 min-h-[160px] w-full flex flex-col justify-between">
+          {note.category?.name && (
+            <p className="bg-slate-600/20 w-fit px-2 py-0.5 rounded-sm text-slate-700 font-medium">
+              {note.category.name}
+            </p>
+          )}
           <section
-            className="line-clamp-3 text-base text-slate-800 dark:text-slate-300 font-light"
+            className="line-clamp-2 text-base text-slate-800 dark:text-slate-300 font-light"
             dangerouslySetInnerHTML={{ __html: htmlContent || "" }}
           />
 
@@ -53,7 +59,11 @@ async function Card({ note }: CardProps) {
         </div>
       </Link>
 
-      <div className="absolute flex flex-row gap-2 items-center z-50 right-2 bottom-2">
+      <div
+        className={`absolute flex flex-row gap-2 items-center z-50 right-2 bottom-2 ${
+          cardType === "Preview" && "hidden"
+        }`}
+      >
         <Link
           href={`/notes/${note._id}/edit`}
           className="bg-neutral-100 rounded-md p-1 shadow-md"

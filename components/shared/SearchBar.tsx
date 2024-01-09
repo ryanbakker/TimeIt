@@ -49,6 +49,7 @@ function SearchBar({
         placeholder={placeholder}
         onChange={(e) => setQuery(e.target.value)}
         className="shadow-none border border-neutral-300 ring-0 pl-[45px] focus-visible:ring-transparent focus:border-neutral-800 !py-5"
+        disabled
       />
     </div>
   );

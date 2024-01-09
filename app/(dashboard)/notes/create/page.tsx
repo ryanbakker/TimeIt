@@ -10,7 +10,7 @@ function CreateNote() {
     <>
       <Heading
         title="Create Note"
-        subtitle="Create a new note to add to your collection"
+        subtitle="Use markdown or raw text and use categories to help organize your notes."
         icon="create-doc"
       />
 

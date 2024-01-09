@@ -11,7 +11,7 @@ type ActionButtonProps = {
 function ActionButton({ icon, title, route }: ActionButtonProps) {
   return (
     <Button size="lg" asChild className="w-full sm:w-fit gap-2">
-      <Link href="/grades">
+      <Link href={route}>
         <Award
           size={20}
           className={`${icon === "Award" ? "block" : "hidden"}`}

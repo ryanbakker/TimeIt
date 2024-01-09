@@ -16,7 +16,10 @@ async function GradesPage() {
 
   return (
     <div className="bg-white dark:bg-[#121827]">
-      <Heading title="Grades" subtitle="Add and understand your grades." />
+      <Heading
+        title="Grades"
+        subtitle="Review and keep track of your course grades in a comprehensible and elegant way. Add your grades to start the process."
+      />
 
       <section>
         <div className="wrapper grid grid-cols-1 md:grid-cols-2">

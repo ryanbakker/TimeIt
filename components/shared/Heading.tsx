@@ -9,7 +9,7 @@ type HeadingProps = {
 function Heading({ title, subtitle, icon }: HeadingProps) {
   return (
     <div className="wrapper">
-      <div className="relative w-fit pt-8 flex flex-row items-center gap-2">
+      <div className="relative w-fit pt-8 flex flex-row items-center gap-2 text-indigo-900 dark:text-indigo-50">
         {icon === "create-doc" && <FilePlus size={34} />}
         {icon === "edit-doc" && <FileMinus size={34} />}
         <div>

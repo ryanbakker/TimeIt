@@ -13,6 +13,7 @@ import { getData } from "@/lib/utils";
 import { SearchParamProps } from "@/types";
 import { Calendar, Hourglass, MoveRight, Plus } from "lucide-react";
 import { auth } from "@clerk/nextjs";
+import { getUserById } from "@/lib/database/actions/user.actions";
 
 export default async function Home({ searchParams }: SearchParamProps) {
   const { sessionClaims } = auth();
@@ -20,6 +21,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const searchText = (searchParams.query as string) || "";
   const category = (searchParams?.category as string) || "";
   const priority = (searchParams?.priority as string) || "";
+
+  const currentUser = await getUserById(creator);
 
   const notes = await getAllNotes({
     creator: creator,
@@ -42,7 +45,10 @@ export default async function Home({ searchParams }: SearchParamProps) {
   return (
     <>
       <section className="relative overflow-hidden py-8 -z-10">
-        <WelcomeHeading />
+        <WelcomeHeading
+          userFirstName={currentUser.firstName}
+          userLastName={currentUser.lastName}
+        />
 
         <div className="pattern-dots pattern-indigo-700 pattern-bg-indigo-300 pattern-size-4 pattern-opacity-20 h-screen w-full absolute top-0 left-0 -z-10" />
 
@@ -138,6 +144,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
           limit={3}
           page={1}
           totalPages={1}
+          collectionType="Preview"
         />
 
         <div className="wrapper">

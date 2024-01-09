@@ -294,3 +294,7 @@ a.fc-more-link {
 .tremor-Flex-root {
   @apply border-none !important;
 }
+
+.data-\[state\=active\]\:bg-background[data-state="active"] {
+  @apply dark:bg-slate-600 bg-white !important;
+}

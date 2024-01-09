@@ -3,7 +3,12 @@
 import { Hourglass } from "lucide-react";
 import { useEffect, useState } from "react";
 
-function WelcomeHeading() {
+type WelcomeHeadingProps = {
+  userFirstName?: string;
+  userLastName?: string;
+};
+
+function WelcomeHeading({ userFirstName, userLastName }: WelcomeHeadingProps) {
   const [greeting, setGreeting] = useState<string>("");
 
   useEffect(() => {
@@ -34,8 +39,11 @@ function WelcomeHeading() {
           </div>
         </div>
         <h2 className="pt-2 text-slate-600 dark:text-slate-300 font-light max-w-[400px]">
-          <span className="font-semibold">{greeting} person,</span> take control
-          and manage your tasks to get the most out of your education.
+          <span className="font-semibold">
+            {greeting} {userFirstName} {userLastName},
+          </span>{" "}
+          take control and manage your tasks to get the most out of your
+          education.
         </h2>
       </div>
 

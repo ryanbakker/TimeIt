@@ -1,5 +1,6 @@
 import BackButton from "@/components/shared/BackButton";
 import Heading from "@/components/shared/Heading";
+import NoteFilter from "@/components/shared/NoteFilter";
 import NotesCollection from "@/components/shared/NotesCollection";
 import SearchBar from "@/components/shared/SearchBar";
 import { Button } from "@/components/ui/button";
@@ -29,13 +30,14 @@ async function Notes({ searchParams }: SearchParamProps) {
       <section>
         <Heading
           title="Notes"
-          subtitle="Create and store all your class notes in one place"
+          subtitle="All your notes in one place. Create, edit, search and filter through your notes to never lose information. Notes can be created using markdown."
         />
 
         <div className="wrapper flex flex-row items-center justify-between gap-8 md:gap-0">
           <BackButton />
           <div className="wrapper hidden md:flex flex-row items-center gap-3 justify-center">
             <SearchBar />
+            <NoteFilter userId={creator} />
           </div>
           <Button
             asChild
@@ -50,6 +52,7 @@ async function Notes({ searchParams }: SearchParamProps) {
 
         <div className="wrapper flex md:hidden flex-col items-center gap-3 justify-center">
           <SearchBar />
+          <NoteFilter userId={creator} />
         </div>
       </section>
 
@@ -61,6 +64,7 @@ async function Notes({ searchParams }: SearchParamProps) {
           limit={6}
           page={page}
           totalPages={notes?.totalPages}
+          collectionType="Main"
         />
       </section>
     </>

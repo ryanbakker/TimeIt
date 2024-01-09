@@ -129,3 +129,16 @@ export async function getData(): Promise<Grades[]> {
 
   return mappedGrades;
 }
+
+// utils.ts
+
+export const isFutureDate = (dateTimeString: string): boolean => {
+  const currentDate = new Date();
+  const eventDate = new Date(dateTimeString);
+
+  // Compare the dates (ignoring time)
+  currentDate.setHours(0, 0, 0, 0);
+  eventDate.setHours(0, 0, 0, 0);
+
+  return eventDate >= currentDate;
+};

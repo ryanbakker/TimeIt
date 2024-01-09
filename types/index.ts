@@ -83,7 +83,12 @@ export type Note = {
 
 // Category Params
 export type CreateCategoryParams = {
+  userId: string;
   categoryName: string;
+};
+
+export type GetAllCategoriesParams = {
+  userId: string;
 };
 
 // URL Query Params
@@ -120,6 +125,7 @@ export type NoteCollectionProps = {
   page: number | string;
   totalPages?: number;
   urlParamName?: string;
+  collectionType: "Preview" | "Main";
 };
 
 // Grades
@@ -214,4 +220,8 @@ export type Task = {
 // Priority Params
 export type CreatePriorityParams = {
   priorityName: string;
+};
+
+export type DeleteCategoryParams = {
+  categoryId: string;
 };

@@ -94,40 +94,43 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
         onSubmit={form.handleSubmit(onSubmit)}
         className="wrapper flex flex-col gap-4 mb-20"
       >
-        <FormField
-          control={form.control}
-          name="title"
-          render={({ field }) => (
-            <FormItem className="flex flex-row items-center bg-gray-200 rounded-md px-2">
-              <Heading1 />
-              <FormControl>
-                <Input
-                  placeholder="Note title"
-                  {...field}
-                  className="input-field font-medium max-w-[1000px]"
-                  autoComplete="off"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        <div className="flex flex-row items-center justify-between gap-8">
+          <FormField
+            control={form.control}
+            name="title"
+            render={({ field }) => (
+              <FormItem className="flex flex-row items-center bg-gray-200 dark:bg-slate-800 rounded-md px-3 py-2 w-full">
+                <Heading1 />
+                <FormControl>
+                  <Input
+                    placeholder="Note title"
+                    {...field}
+                    className="input-field font-medium max-w-[1000px]"
+                    autoComplete="off"
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name="categoryId"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <CategoryDropdown
-                  onChangeHandler={field.onChange}
-                  value={field.value}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+          <FormField
+            control={form.control}
+            name="categoryId"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormControl>
+                  <CategoryDropdown
+                    onChangeHandler={field.onChange}
+                    value={field.value}
+                    userId={userId}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
 
         <div>
           <Popover>
@@ -264,7 +267,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
             </PopoverContent>
           </Popover>
           <Tabs defaultValue="markdown">
-            <TabsList className="px-0 mb-1 mt-1 ">
+            <TabsList className="px-0 mb-1 mt-1 dark:bg-slate-800">
               <TabsTrigger value="markdown" className="py-[10px]">
                 Content Markdown
               </TabsTrigger>
@@ -277,7 +280,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
                 control={form.control}
                 name="content"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start bg-gray-200 rounded-md px-2">
+                  <FormItem className="flex flex-row items-start bg-gray-200 dark:bg-slate-800 rounded-md px-2">
                     <div className="pt-1.5 pl-0 relative h-full flex-1">
                       <AlignLeft />
 
@@ -298,7 +301,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
               />
             </TabsContent>
             <TabsContent value="preview" className="markdown-preview">
-              <div className="p-8 border-slate-300 bg-gray-50 border rounded-lg max-h-[30rem] overflow-scroll">
+              <div className="p-8 border-slate-300 dark:border-slate-600 bg-gray-50 dark:!bg-slate-800 border rounded-lg max-h-[30rem] overflow-scroll">
                 <MarkdownPreview markdown={postContent} />
               </div>
             </TabsContent>
@@ -318,7 +321,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
             type="submit"
             size="lg"
             disabled={form.formState.isSubmitting}
-            className="bg-indigo-600 hover:bg-indigo-800"
+            className="bg-indigo-600 hover:bg-indigo-800 text-white"
           >
             {form.formState.isSubmitting ? "Submitting..." : `${type} Note`}
           </Button>

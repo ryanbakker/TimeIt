@@ -12,7 +12,7 @@ function Schedule() {
     <div className="bg-neutral-50 dark:bg-slate-800">
       <Heading
         title="Schedule"
-        subtitle="Add your timetable and never lose it"
+        subtitle="Here you can add anything worthy of putting on your calendar, whether it's upcoming assignments / exams or meeting up with your club."
       />
 
       <section className="wrapper grid grid-cols-1 md:grid-cols-3 gap-8">
