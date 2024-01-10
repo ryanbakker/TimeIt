@@ -4,9 +4,9 @@
 
 <p style="font-weight-300">The TimeIt web app allows students to keep their resources in one place while studying. Delivering useful information simply and elegantly. Allow users to keep track and understand their studies more clearly. Features include grade management and displays, better note-taking using optional markdown language, task management for assignments, and a calendar to create your schedule. Thus it includes all of the features without the unnecessary steps and ads.</p>
 
-**View the demo here:** <a href="https://demo-timeit.vercel.app" target="_blank">`https://demo-timeit.vercel.app`</a>
+**View the demo here:** <a href="https://demo-timeit.vercel.app" target="_blank">`demo-timeit.vercel.app`</a>
 
-**Get started with TimeIt here:** <a href="https://ryanbakker-timeit.vercel.app" target="_blank">`https://ryanbakker-timeit.vercel.app`</a>
+**Get started with TimeIt here:** <a href="https://ryanbakker-timeit.vercel.app" target="_blank">`ryanbakker-timeit.vercel.app`</a>
 
 ---
 
