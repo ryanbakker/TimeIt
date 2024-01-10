@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ⌛️ TimeIt.
 
-## Getting Started
+`Get the most out of your education` <br/>
 
-First, run the development server:
+<p style="font-weight-300">The TimeIt web app allows students to keep their resources in one place while studying. Delivering useful information simply and elegantly. Allow users to keep track and understand their studies more clearly. Features include grade management and displays, better note-taking using optional markdown language, task management for assignments, and a calendar to create your schedule. Thus it includes all of the features without the unnecessary steps and ads.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+View the demo here: <a href="https://demo-timeit.vercel.app" target="_blank">`https://demo-timeit.vercel.app`</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Get started with TimeIt here: <a href="https://ryanbakker-timeit.vercel.app" target="_blank">`https://ryanbakker-timeit.vercel.app`</a>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 🛠️ Tools Used
 
-## Learn More
+<div style="display: flex; gap: 30%; padding-bottom: 20px">
+<div>
+- Next.js 14 <br/>
+- Typescript <br/>
+- Tailwind CSS <br/>
+- Mongo DB <br/>
+- Clerk Auth
+</div>
+<div>
+- Shadcn-UI <br/>
+- Tremor <br/>
+- Tanstack Tables <br/>
+- Remarkable (markdown) <br/>
+- React Full Calendar
+</div>
+</div>
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### This repo is open to contributions
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**Explore unresolved challenges in the designated issues section. Kindly establish your own branch and share thorough detailed pull requests, aligning with the usual approach for contributions.**
