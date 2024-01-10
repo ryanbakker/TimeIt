@@ -56,7 +56,7 @@ function NoteFilter({ userId }: { userId: string }) {
       />
       <Select onValueChange={(value: string) => onSelectedCategory(value)}>
         <SelectTrigger className="w-full md:max-w-[360px] shadow-none border border-neutral-300 ring-0 pl-[45px] focus-visible:ring-transparent focus:border-neutral-800 focus:ring-0 py-5">
-          <SelectValue placeholder="Priority" />
+          <SelectValue placeholder="Category" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem value="All">All</SelectItem>
