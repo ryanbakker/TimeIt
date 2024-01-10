@@ -29,7 +29,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
     query: searchText,
     category,
     page: 1,
-    limit: 4,
+    limit: 3,
   });
 
   const tasks = await getAllTasks({

@@ -51,7 +51,7 @@ export default async function Tasks({ searchParams }: SearchParamProps) {
         data={tasks?.data}
         emptyTitle="Good Job!"
         emptyStateSubtext="No tasks to complete"
-        limit={6}
+        limit={8}
         page={page}
         totalPages={tasks?.totalPages}
       />

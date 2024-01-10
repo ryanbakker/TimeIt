@@ -22,7 +22,7 @@ async function Notes({ searchParams }: SearchParamProps) {
     query: searchText,
     category,
     page: page,
-    limit: 8,
+    limit: 6,
   });
 
   return (

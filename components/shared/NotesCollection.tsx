@@ -16,7 +16,7 @@ function NotesCollection({
     <>
       {data.length > 0 ? (
         <div className="pb-6">
-          <ul className="wrapper grid grid-cols-1 gap-5 sm:grid-cols-3 md:grid-cols-4 xl:gap-10">
+          <ul className="wrapper grid grid-cols-1 gap-5 sm:grid-cols-3 xl:gap-10">
             {data.map((note) => (
               <li
                 key={note._id}
