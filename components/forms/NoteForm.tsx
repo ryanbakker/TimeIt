@@ -94,7 +94,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
         onSubmit={form.handleSubmit(onSubmit)}
         className="wrapper flex flex-col gap-4 mb-20"
       >
-        <div className="flex flex-row items-center justify-between gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
           <FormField
             control={form.control}
             name="title"
@@ -139,7 +139,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
                 Markdown Tips
               </span>
             </PopoverTrigger>
-            <PopoverContent className="ml-8 bg-gray-100 w-full">
+            <PopoverContent className="ml-8 bg-gray-100 dark:bg-slate-600 w-full">
               <div className="markdown-tips-container hidden md:flex gap-8">
                 <ul className="markdown-tips-list">
                   <li>
@@ -308,7 +308,7 @@ function NoteForm({ userId, type, note, noteId }: NoteFormProps) {
           </Tabs>
         </div>
 
-        <div className="flex flex-row gap-3">
+        <div className="flex flex-col md:flex-row gap-5 md:gap-3">
           <Button
             size="lg"
             disabled={form.formState.isSubmitting}

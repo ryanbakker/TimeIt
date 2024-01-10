@@ -40,7 +40,7 @@ async function Card({ note, cardType }: CardProps) {
         </div>
         <div className="bg-indigo-300/20 relative px-4 py-3 flex-1 rounded-b-md z-0 min-h-[160px] w-full flex flex-col justify-between">
           {note.category?.name && (
-            <p className="bg-slate-600/20 w-fit px-2 py-0.5 rounded-sm text-slate-700 font-medium">
+            <p className="bg-slate-600/20 w-fit px-2 py-0.5 rounded-sm text-slate-700 dark:text-slate-400 font-medium">
               {note.category.name}
             </p>
           )}

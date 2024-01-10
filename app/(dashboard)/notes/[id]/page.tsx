@@ -30,7 +30,7 @@ async function Note({ params: { id }, searchParams }: SearchParamProps) {
 
   return (
     <>
-      <section className="wrapper flex flex-row justify-between items-end w-full">
+      <section className="wrapper flex flex-col md:flex-row justify-between items-end w-full">
         <div>
           <div className="relative w-fit pt-8 flex flex-row items-center pb-8">
             <h1 className="text-3xl font-semibold text-indigo-900 dark:text-indigo-50 line-clamp-2">
@@ -40,11 +40,11 @@ async function Note({ params: { id }, searchParams }: SearchParamProps) {
 
           <BackButton />
         </div>
-        <div className="!py-0 flex flex-col gap-2 w-fit items-end">
-          <p className="bg-indigo-800/10 px-5 py-1 rounded-md w-fit font-semibold text-indigo-700">
+        <div className="!py-0 flex flex-row md:flex-col gap-2 w-full md:w-fit items-end mt-8 md:mt-0">
+          <p className="bg-indigo-800/10 text-center md:px-5 py-1 rounded-md w-full md:w-fit font-semibold text-indigo-700">
             {note.category.name}
           </p>
-          <p className="bg-indigo-800/10 px-5 py-1 rounded-md w-fit font-semibold text-indigo-700">
+          <p className="bg-indigo-800/10 text-center md:px-5 py-1 rounded-md w-full md:w-fit font-semibold text-indigo-700">
             Created: {multiFormatDateString(note.createdAt.toString())}
           </p>
         </div>
